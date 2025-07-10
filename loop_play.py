@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon = "😀"
 )
 
-st.subheader("WooChan's hymn")
+st.subheader("우찬's hymn")
 
 upload_file = st.file_uploader("MP3 파일을 선택해주세요", type = ["mp3"])
 
