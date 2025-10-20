@@ -1,14 +1,60 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>Test Audio</title>
+    <title>Loop Play Audio</title>
+    <style>
+
+        body {
+            background-color: #4a4545;
+        }
+
+        #file-name {
+            margin-left: 20px;
+            display: inline-block;
+            height: 40px;
+            width: 50%;
+            border: 1px solid #dddddd;
+        }
+
+        #file-label {
+            margin-left: 10px;
+            align-content: center;
+            display: inline-block;
+            height: 40px;
+            border: 1px solid #dddddd;
+            color: white;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        input[type="file"] {
+            position: absolute;
+            width: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+        }
+
+        audio {
+            margin-left: 20px;
+        }
+
+    </style>
 </head>
 <body>
-    <audio id="audio-player" controls accept="audio/*">
-    </audio>
 
-    <label for="fileSelector">Select a file:</label>
-    <input type="file" id="fileSelector" name="fileSelector">
+    <p>
+        <form class="file-container">
+            <input id="file-name" value="" placeholder="파일을 선택해주세요">
+            <label id="file-label" for="fileSelector">파일선택</label>
+            <input type="file" id="fileSelector" name="fileSelector" type="audio/*">
+        </form>
+    </p>
+
+    <br>
+        <audio id="audio-player" controls loop autoplay accept="audio/*">
+        </audio>
+    </br>
 
      <script>
         var input = document.getElementById("fileSelector")
@@ -27,7 +73,6 @@
             const fileURL = URL.createObjectURL(file)
             audioPlayer.src = fileURL;
 
-            audioPlayer.load();
             audioPlayer.play();
         }
 
