@@ -69,6 +69,9 @@
 
         function playSound(file) {
 
+            const fileName = document.getElementById("file-name")
+            fileName.value = file.name
+
             const audioPlayer = document.getElementById("audio-player");
             const fileURL = URL.createObjectURL(file)
             audioPlayer.src = fileURL;
